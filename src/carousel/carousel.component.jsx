@@ -4,6 +4,7 @@ import "./carousel.styles.css";
 
 import CarouselItem from "../carousel-item/carousel-item.component";
 import CarouselControls from "../carousel-control/carousel-control.component";
+import CarouselIndicators from "../carousel-indicators/carousel-indicators.component";
 
 const Carousel = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,6 +12,7 @@ const Carousel = ({ slides }) => {
   const slideInterval = useRef();
 
   const startSlide = () => {
+    stopSlide();
     slideInterval.current = setInterval(() => {
       setCurrentSlide((currentSlide) =>
         currentSlide < slides.length - 1 ? currentSlide + 1 : 0
@@ -34,13 +36,20 @@ const Carousel = ({ slides }) => {
   ));
 
   const prev = () => {
+    startSlide();
     const index = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
     setCurrentSlide(index);
   };
 
   const next = () => {
+    startSlide();
     const index = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
     setCurrentSlide(index);
+  };
+
+  const switchIdx = (idx) => {
+    startSlide();
+    setCurrentSlide(idx);
   };
 
   useEffect(() => {
@@ -58,6 +67,11 @@ const Carousel = ({ slides }) => {
       >
         {displayItems}
       </div>
+      <CarouselIndicators
+        slides={slides}
+        currentSlide={currentSlide}
+        switchIdx={switchIdx}
+      />
       <CarouselControls
         prev={prev}
         next={next}

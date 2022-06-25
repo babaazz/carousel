@@ -6,7 +6,7 @@ import CarouselItem from "../carousel-item/carousel-item.component";
 import CarouselControls from "../carousel-control/carousel-control.component";
 import CarouselIndicators from "../carousel-indicators/carousel-indicators.component";
 
-const Carousel = ({ slides }) => {
+const Carousel = ({ slides, interval, width, leftArrow, rightArrow }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slideInterval = useRef();
@@ -17,7 +17,7 @@ const Carousel = ({ slides }) => {
       setCurrentSlide((currentSlide) =>
         currentSlide < slides.length - 1 ? currentSlide + 1 : 0
       );
-    }, 5000);
+    }, interval);
   };
 
   const stopSlide = () => {
@@ -32,6 +32,7 @@ const Carousel = ({ slides }) => {
       startSlide={startSlide}
       stopSlide={stopSlide}
       fade={idx === currentSlide ? "fade" : ""}
+      interval={interval}
     />
   ));
 
@@ -58,12 +59,12 @@ const Carousel = ({ slides }) => {
   }, []);
 
   return (
-    <div className="carousel">
+    <div className="carousel" style={{ maxWidth: `${width}px` }}>
       <div
         className="carousel-inner"
-        style={{
-          transform: `translateX(${-currentSlide * 100}%)`,
-        }}
+        // style={{
+        //   transform: `translateX(${-currentSlide * 100}%)`,
+        // }}
       >
         {displayItems}
       </div>
@@ -77,6 +78,8 @@ const Carousel = ({ slides }) => {
         next={next}
         stopSlide={stopSlide}
         startSlide={startSlide}
+        leftArrow={leftArrow}
+        rightArrow={rightArrow}
       />
     </div>
   );

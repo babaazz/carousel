@@ -3,9 +3,9 @@
   background: transparent;
   border: none;
   position: absolute;
-  top: 48%;
+  top: 42%;
   color: rgba(100, 100, 100);
-  font-size: xx-large;
+  font-size: 60px;
   font-weight: 900;
   cursor: pointer;
 }
@@ -15,8 +15,8 @@
 }
 
 .left {
-  left: 0;
+  left: 15px;
 }
 .right {
-  right: 0;
+  right: 15px;
 }

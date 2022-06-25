@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Carousel slides={data.banner.start} />
+        <Carousel slides={data.banner.start} interval={5000} width={1500} />
       </div>
     </div>
   );

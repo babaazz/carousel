@@ -1,6 +1,13 @@
 import "./carousel-control.styles.css";
 
-const CarouselControls = ({ prev, next, stopSlide, startSlide }) => {
+const CarouselControls = ({
+  prev,
+  next,
+  stopSlide,
+  startSlide,
+  leftArrow,
+  rightArrow,
+}) => {
   return (
     <div>
       <button
@@ -9,7 +16,7 @@ const CarouselControls = ({ prev, next, stopSlide, startSlide }) => {
         onMouseEnter={stopSlide}
         onMouseOut={startSlide}
       >
-        &#10096;
+        {leftArrow || "❰"}
       </button>
       <button
         className="carousel-control right"
@@ -17,7 +24,7 @@ const CarouselControls = ({ prev, next, stopSlide, startSlide }) => {
         onMouseEnter={stopSlide}
         onMouseOut={startSlide}
       >
-        &#10097;
+        {rightArrow || "❱"}
       </button>
     </div>
   );

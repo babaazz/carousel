@@ -1,6 +1,6 @@
 import "./carousel-item.styles.css";
 
-const CarouselItem = ({ image, stopSlide, startSlide, fade }) => {
+const CarouselItem = ({ image, stopSlide, startSlide, fade, interval }) => {
   return (
     <div className="carousel-item">
       <img

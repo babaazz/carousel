@@ -1,10 +1,15 @@
-import React from "react";
 import "./carousel-item.styles.css";
 
-const CarouselItem = ({ image }) => {
+const CarouselItem = ({ image, stopSlide, startSlide, fade }) => {
   return (
     <div className="carousel-item">
-      <img src={image} alt={image} />
+      <img
+        className={fade}
+        src={image}
+        alt={image}
+        onMouseEnter={stopSlide}
+        onMouseOut={startSlide}
+      />
     </div>
   );
 };

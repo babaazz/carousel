@@ -1,0 +1,22 @@
+.carousel-control {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 48%;
+  color: rgba(100, 100, 100);
+  font-size: xx-large;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.carousel-control:hover {
+  opacity: 0.5;
+}
+
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}

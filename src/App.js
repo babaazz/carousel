@@ -5,7 +5,9 @@ import Carousel from "./carousel/carousel.component";
 function App() {
   return (
     <div className="App">
-      <Carousel slides={data.banner.start} />
+      <div className="container">
+        <Carousel slides={data.banner.start} />
+      </div>
     </div>
   );
 }
